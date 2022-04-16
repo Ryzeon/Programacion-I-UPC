@@ -1,8 +1,8 @@
 # Programacion I UPC
 
 ### Unidades
- * [**Unidad 1**](Unidad 1/README.md)
- * [**Unidad 2**](Unidad 2/README.md)
+ * [**Unidad 1**](Unidad%201/README.md)
+ * [**Unidad 2**](Unidad%202/README.md)
 
 ### Clonar repositorio
 
