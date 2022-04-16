@@ -4,15 +4,10 @@
 ### [**Hoja 1**](Sheet_1.h)
 
 
-### Intrucciones
-* #### Clonar el repositorio
-    ```bash
-    git clone https://github.com/Ryzeon/Ejercicios_C_Plus_Plus_UPC.git
-    ```
-
+### Instrucciones
 * #### Ejecutar el programa
     ```bash
-    cd Ejercicios_C_Plus_Plus_UPC
+    cd Unidad 2
     g++ -o main main.cpp
     ./main
     ```
