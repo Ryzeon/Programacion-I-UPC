@@ -6,6 +6,8 @@
 #define EJERCICIOS_SHEET_1_H
 
 #include <iostream>
+#include <valarray>
+#include <iomanip>
 
 using namespace std;
 
@@ -143,19 +145,67 @@ private:
     }
 
     void exercise_4() {
-
+        int age;
+        cout << "Ingresa la edad de la persona : ";
+        cin >> age;
+        int price = age < 18 ? 7 : (age >= 18 && age <= 50) ? 15 : 5;
+        cout << "El precio de la entrada es: " << price << endl;
     }
 
     void exercise_5() {
-
+        int a, b, c;
+        cout << "Ingrese los lados del triangulo (A B C): ";
+        cin >> a >> b >> c;
+        if (a > 0 && b > 0 && c > 0) {
+            //  Cada lado debe ser menor a
+            //la suma y mayor a la diferencia de los otros dos lados.
+            bool is_triangle = a + b > c && a + c > b && b + c > a;
+            if (is_triangle) {
+                cout << "SI ES UN TRIANGULO" << endl;
+            } else {
+                cout << "NO ES UN TRIANGULO" << endl;
+            }
+        } else {
+            cout << "Todos los lados deben ser mayores que 0" << endl;
+        }
     }
 
     void exercise_6() {
-
+        int a, b, c, value;
+        cout << "Ingrese el valor de A: ";
+        cin >> a;
+        cout << "Ingrese el valor de B: ";
+        cin >> b;
+        cout << "Ingrese el valor de C: ";
+        cin >> c;
+        cout << "Ingrese un valor para evaluar: ";
+        cin >> value;
+        double discriminant = pow(b, 2) - 4 * a * c;
+        if (discriminant > 0) {
+            double x1 = (-b + sqrt(discriminant)) / (2 * a);
+            double x2 = (-b - sqrt(discriminant)) / (2 * a);
+            cout << fixed << setprecision(2);
+            cout << "Las raices son: " << x1 << " y " << x2 << endl;
+        } else {
+            cout << "No tiene raices reales" << endl;
+        }
+        double result = a * pow(value, 2) + b * value + c;
+        cout << a << "(" << value << ")^2 + " << b << "(" << value << ") + " << c << " = " << result << endl;
     }
 
     void exercise_7() {
-
+        int n1, n2;
+        cout << "Ingrese dos numeros enteros (N1 N2): ";
+        cin >> n1 >> n2;
+        if (n1 >= 0 && n2 >= 0) {
+            if (n1 % n2 == 0) {
+                cout << n1 << " es multiplo de " << n2 << endl;
+            } else {
+                cout << n1 << " no es multiplo de " << n2 << endl;
+            }
+        } else {
+            cout << "Los numeros deben ser mayores que 0" << endl;
+        }
     }
 
     void exercise_8() {
