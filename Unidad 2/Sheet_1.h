@@ -209,35 +209,133 @@ private:
     }
 
     void exercise_8() {
-
+        char gen;
+        cout << "Ingrese su genero (F o M): ";
+        cin >> gen;
+        gen = toupper(gen);
+        double age;
+        cout << "Ingrese la edad de la persona: ";
+        cin >> age;
+        double ticks = round(((gen == 'F' ? 220 : 210) - age) / 10);
+        cout << "El número debe ser de " << ticks << " pulsaciones por cada 10 segundos aproximadamente." << endl;
     }
 
     void exercise_9() {
-
+        int gl, gv;
+        cout << "Ingrese la cantidad de goels del equpo local: ";
+        cin >> gl;
+        cout << "Ingrese la cantidad de goels del equipo visitante: ";
+        cin >> gv;
+        if (gl > gv) {
+            cout << "Ganó el equipo local" << endl;
+        } else if (gl < gv) {
+            cout << "Ganó el equipo visitante" << endl;
+        } else {
+            cout << "Empate" << endl;
+        }
     }
 
     void exercise_10() {
-
+        int type1, type2, type3;
+        double money;
+        cout << "Ingrese la cantidad de caramelos que va a comprar por el Tipo 1: ";
+        cin >> type1;
+        cout << "Ingrese la cantidad de caramelos que va a comprar por el Tipo 2: ";
+        cin >> type2;
+        cout << "Ingrese la cantidad de caramelos que va a comprar por el Tipo 3: ";
+        cin >> type3;
+        cout << "Ingrese el Monto de la propina: ";
+        cin >> money;
+        double total = type1 * 0.75 + type2 * 1.15 + type3 * 0.65;
+        cout << "El monto total de la compra es: " << total << endl;
+        if (money >= total) {
+            cout << "LA PROPINA ES SUFICIENTE PARA PAGAR POR LOS CARAMELOS" << endl;
+        } else {
+            cout << "LA PROPINA NO FUE SUFICIENTE PARA PAGAR POR LOS CARAMELOS" << endl;
+        }
     }
 
     void exercise_11() {
-
+        int gigas;
+        cout << "Ingrese los GB consumidos: ";
+        cin >> gigas;
+        if (gigas >= 0) {
+            if (gigas <= 4) {
+                cout << "Paga S/.50 por mes." << endl;
+            } else if (gigas > 4 && gigas <= 8) {
+                cout << "Paga S/.85 por mes." << endl;
+            } else {
+                double total = 85 + (gigas - 8) * 4.5;
+                cout << "Paga S/." << total << " por mes." << endl;
+            }
+        } else {
+            cout << "Los GB deben ser mayores que 0" << endl;
+        }
     }
 
     void exercise_12() {
-
+        int grades, amountOfFaults;
+        cout << "Ingrese el promedio de notas: ";
+        cin >> grades;
+        cout << "Ingrese la cantidad de faltas: ";
+        cin >> amountOfFaults;
+        if (grades >= 15 && amountOfFaults == 0) {
+            cout << "Aplicas para la beca" << endl;
+        } else {
+            cout << "No aplicas para la beca" << endl;
+        }
     }
 
     void exercise_13() {
-
+        int number;
+        cout << "Ingrese un numero: ";
+        cin >> number;
+        if (number < 100) {
+            cout << "Numero incorrecto" << endl;
+        } else {
+            int firstDigit = number / 100;
+            int secondDigit = (number % 100) / 10;
+            int thirdDigit = number % 10;
+            cout << thirdDigit << secondDigit << firstDigit << endl;
+        }
     }
 
     void exercise_14() {
-
+        int number;
+        cout << "Ingrese un numero: ";
+        cin >> number;
+        if (number < 100) {
+            cout << "Numero incorrecto" << endl;
+        } else {
+            // check if numbers is capicua
+            int firstDigit = number / 100;
+            int secondDigit = (number % 100) / 10;
+            int thirdDigit = number % 10;
+            int capicua = thirdDigit * 100 + secondDigit * 10 + firstDigit;
+            if (number == capicua) {
+                cout << "El numero es capicua" << endl;
+            } else {
+                cout << "El numero no es capicua" << endl;
+            }
+        }
     }
 
     void exercise_15() {
-
+        int number;
+        cout << "Ingrese un numero: ";
+        cin >> number;
+        if (number >= 1 && number <= 100) {
+            if (number >= 1 && number <= 9) {
+                cout << "El numero tiene 1 digito" << endl;
+            } else if (number >= 10 && number <= 99) {
+                cout << "El numero tiene 2 digitos" << endl;
+            } else {
+                cout << "El numero tiene 3 digitos" << endl;
+            }
+        } else {
+            cout << "Numero incorrecto" << endl;
+            exercise_15();
+        }
     }
 
     void exercise_16() {
