@@ -339,23 +339,118 @@ private:
     }
 
     void exercise_16() {
-
+        int studentCode;
+        cout << "Ingrese el codigo del estudiante: ";
+        cout << "Ingrese el codigo del estudiante: ";
+        cin >> studentCode;
+        if (studentCode <= 0) {
+            cout << "Codigo incorrecto" << endl;
+            exercise_16();
+            return;
+        }
+        double grade_1, grade_2, grade_3;
+        cout << "Ingrese las tres notas del alumno " << studentCode << ": ";
+        cin >> grade_1 >> grade_2 >> grade_3;
+        if (grade_1 < 0 || grade_1 > 20 || grade_2 < 0 || grade_2 > 20 || grade_3 < 0 || grade_3 > 20) {
+            cout << "Notas incorrectas" << endl;
+            exercise_16();
+            return;
+        }
+        double average = 0.3 * grade_1 + 0.3 * grade_2 + 0.4 * grade_3;
+        // happy face
+        string happyFace = "\342\230\272";
+        if (average < 13) {
+            cout << "Estudia" << endl;
+        } else if (average >= 13 && average < 15) {
+            cout << "Felicitaciones " << happyFace << endl;
+        } else if (average >= 15 && average < 20) {
+            cout << "Felicitaciones " << happyFace << " " << happyFace << endl;
+        } else {
+            cout << "Felicitaciones " << happyFace << " " << happyFace << " " << happyFace << " " << happyFace << " "
+                 << happyFace << endl;
+        }
     }
 
     void exercise_17() {
-
+        double x, y;
+        cout << "Ingresa las coordenadas de X >> ";
+        cin >> x;
+        cout << "Ingresa las coordenadas de Y >> ";
+        cin >> y;
+        if (x == 0 && y == 0) {
+            cout << "El punto de encuentra en el punto de origen.";
+            return;
+        }
+        if (x == 0) {
+            cout << "El punto de encuentra en el punto Y " << y;
+            return;
+        }
+        if (y == 0) {
+            cout << "El punto de encuentra en el punto X " << x;
+            return;
+        }
+        int cuadrante = (x > 0 && y > 0) ? 1 : (x < 0 && y > 0) ? 2 : (x < 0 && y < 0) ? 3 : 4;
+        cout << "El punto se encuentra en el cuadrante " << cuadrante;
     }
 
     void exercise_18() {
-
+        int position;
+        cout << "Ingrese la posición del equipo en la tabla: ";
+        cin >> position;
+        if (position <= 0) {
+            cout << "Posición incorrecta" << endl;
+            exercise_18();
+            return;
+        }
+        if (position >= 1 && position <= 4) {
+            cout << "El equipo seleccionado irá al mundial !!!!" << endl;
+        } else if (position == 5) {
+            cout << "El quinto va al repechaje" << endl;
+        } else {
+            cout << "Cómprate una TV LED para ver el mundial !!!" << endl;
+        }
     }
 
     void exercise_19() {
-
+        double grade;
+        cout << "Ingrese la nota del estudiante: ";
+        cin >> grade;
+        if (grade < 0 || grade > 20) {
+            cout << "Nota incorrecta" << endl;
+            exercise_19();
+            return;
+        }
+        if (grade < 5) {
+            cout << "Necesita estudiar" << endl;
+        } else if (grade >= 5 && grade < 13) {
+            cout << "Jalado" << endl;
+        } else if (grade >= 13 && grade < 15) {
+            cout << "Raspando" << endl;
+        } else if (grade >= 15 && grade < 20) {
+            cout << "Sobresaliente" << endl;
+        } else {
+            cout << "Matrícula de honor" << endl;
+        }
     }
 
     void exercise_20() {
-
+        int credits;
+        cout << "Ingrese la cantidad de créditos acumulados: ";
+        cin >> credits;
+        if (credits < 0) {
+            cout << "Cantidad de créditos incorrecta" << endl;
+            exercise_20();
+            return;
+        }
+        string message = "CUARTO AÑO";
+        if (credits < 32) {
+            message = "PRIMER AÑO";
+        } else if (credits >= 32 && credits <= 63) {
+            message = "SEGUNDO AÑO";
+        } else if (credits >= 64 && credits <= 95) {
+            message = "TERCER AÑO";
+        }
+        cout << "El alumno se encuentra en el " << message << endl;
     }
 
     void exercise_21() {
