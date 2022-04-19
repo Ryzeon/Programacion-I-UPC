@@ -341,7 +341,6 @@ private:
     void exercise_16() {
         int studentCode;
         cout << "Ingrese el codigo del estudiante: ";
-        cout << "Ingrese el codigo del estudiante: ";
         cin >> studentCode;
         if (studentCode <= 0) {
             cout << "Codigo incorrecto" << endl;
@@ -454,44 +453,310 @@ private:
     }
 
     void exercise_21() {
-
+        double amount;
+        cout << "Ingrese el monto del préstamo en $: ";
+        cin >> amount;
+        int interestRate = amount <= 5000 ? 3 : amount <= 10000 ? 2 : 1;
+        double interest = amount * interestRate / 100;
+        double total = amount + interest;
+        cout << "El monto total a pagar es de $ " << total << endl;
     }
 
     void exercise_22() {
-
+        int zone = 0;
+        cout << "Ingrese la zona (1-2): ";
+        cin >> zone;
+        if (zone < 1 || zone > 2) {
+            cout << "Zona incorrecta" << endl;
+            exercise_22();
+            return;
+        }
+        int kilowatts = 0;
+        cout << "Ingrese la cantidad de kilowatts consumidos: ";
+        cin >> kilowatts;
+        if (kilowatts < 0) {
+            cout << "Cantidad de kilowatts incorrecta" << endl;
+            exercise_22();
+            return;
+        }
+        double kilowattsAditional = kilowatts - 100;
+        double price = (kilowatts - kilowattsAditional) * (zone == 1 ? 0.75 : 0.30);
+        double aditional = kilowattsAditional * (zone == 1 ? 0.9 : 0.7);
+        double total = price + aditional;
+        cout << "El monto a pagar es de " << total << endl;
     }
 
     void exercise_23() {
-
+        int hourWorked;
+        cout << "Ingrese la cantidad de horas trabajadas: ";
+        cin >> hourWorked;
+        if (hourWorked < 0) {
+            cout << "Cantidad de horas incorrecta" << endl;
+            exercise_23();
+            return;
+        }
+        double hoursAditional = hourWorked - 40;
+        double price = (hourWorked - hoursAditional) * 16;
+        double aditional = hoursAditional * 20;
+        double total = price + aditional;
+        cout << "El salario semanal del obrero es de $" << total << endl;
     }
 
     void exercise_24() {
-
+        double pricePerComputer = 760;
+        int amountToBuy;
+        cout << "Ingrese la cantidad de computadores a comprar: ";
+        cin >> amountToBuy;
+        if (amountToBuy < 0) {
+            cout << "Cantidad de computadores incorrecta" << endl;
+            exercise_24();
+            return;
+        }
+        int discount = amountToBuy < 5 ? 10 : amountToBuy >= 5 && amountToBuy < 10 ? 20 : 40;
+        double total = (pricePerComputer * amountToBuy);
+        double discountAmount = total * discount / 100;
+        double finalPrice = total - discountAmount;
+        cout << "El costo es de $" << total << " y el total aplicando el descuento de $" << discountAmount << " es de $"
+             << finalPrice << endl;
     }
 
     void exercise_25() {
-
+        int pizzaDiameter;
+        int additionalIngredient;
+        cout << "Ingrese el diametro de la pizza en cm: ";
+        cin >> pizzaDiameter;
+        if (pizzaDiameter < 0) {
+            cout << "Diametro de pizza incorrecto" << endl;
+            exercise_25();
+            return;
+        }
+        cout << "Ingrese la cantidad de ingredientes adicionales: ";
+        cin >> additionalIngredient;
+        double pizzaPrice = pizzaDiameter * 1.5;
+        double additionalIngredientPrice = additionalIngredient * 2.5;
+        double total = pizzaPrice + additionalIngredientPrice;
+        cout << "El precio total de la pizza es de $" << total << endl;
     }
 
     void exercise_26() {
-
+        int age;
+        cout << "Ingrese su edad: ";
+        cin >> age;
+        if (age < 5) {
+            cout << "Edad incorrecta" << endl;
+            exercise_26();
+            return;
+        }
+        int discount =
+                age >= 5 && age < 14 ? 35 : age >= 15 && age <= 19 ? 25 : age >= 20 && age <= 45 ? 10 : age >= 46 &&
+                                                                                                        age <= 65 ? 22
+                                                                                                                  : 50;
+        string kind = "Entrada ";
+        switch (discount) {
+            case 35:
+                kind += "1";
+                break;
+            case 25:
+                kind += "2";
+                break;
+            case 10:
+                kind += "3";
+                break;
+            case 22:
+                kind += "4";
+                break;
+            default:
+                kind += "5";
+                break;
+        }
+        double ticketPrice = 15;
+        double total = ticketPrice - (ticketPrice * discount / 100);
+        cout << "El tipo de la entrada es “" << kind << "” y el precio total es de $" << total << endl;
     }
 
     void exercise_27() {
-
+        int numberOfCurses, semester;
+        cout << "Ingrese el numero de cursos: ";
+        cin >> numberOfCurses;
+        if (numberOfCurses < 0) {
+            cout << "Numero de cursos incorrecto" << endl;
+            exercise_27();
+            return;
+        }
+        cout << "Ingrese el número ciclo a cursar: ";
+        cin >> semester;
+        if (semester < 0) {
+            cout << "Numero de ciclo incorrecto" << endl;
+            exercise_27();
+            return;
+        }
+        int discount = semester >= 1 && semester <= 3 ? 10 : semester >= 4 && semester <= 6 ? 15 : semester >= 7 &&
+                                                                                                   semester <= 8 ? 17
+                                                                                                                 : 18;
+        double totalPrice = numberOfCurses * 155;
+        double discountAmount = totalPrice * discount / 100;
+        double finalPrice = totalPrice - discountAmount;
+        cout << "El costo es de $" << finalPrice << endl;
     }
 
 
     void exercise_28() {
-
+        char letter;
+        cout << "Ingresa la escala de pago: ";
+        cin >> letter;
+        letter = toupper(letter);
+        if (letter != 'A' && letter != 'B' && letter != 'C' && letter != 'D') {
+            cout << "Escala de pago incorrecta" << endl;
+            exercise_28();
+            return;
+        }
+        int numberOfCurses;
+        cout << "Ingrese el numero de cursos: ";
+        cin >> numberOfCurses;
+        if (numberOfCurses < 0) {
+            cout << "Numero de cursos incorrecto" << endl;
+            exercise_28();
+            return;
+        }
+        double cuota = 350;
+        double cuotaFija;
+        switch (letter) {
+            case 'A':
+                cuotaFija = numberOfCurses >= 1 && numberOfCurses <= 5 ? 400 : numberOfCurses >= 6 &&
+                                                                               numberOfCurses <= 8 ? 600 : 900;
+                break;
+            case 'B':
+                cuotaFija = numberOfCurses >= 1 && numberOfCurses <= 5 ? 350 : numberOfCurses >= 6 &&
+                                                                               numberOfCurses <= 8 ? 500 : 700;
+                break;
+            case 'C':
+                cuotaFija = numberOfCurses >= 1 && numberOfCurses <= 5 ? 320 : numberOfCurses >= 6 &&
+                                                                               numberOfCurses <= 8 ? 480 : 685;
+                break;
+            case 'D':
+                cuotaFija = numberOfCurses >= 1 && numberOfCurses <= 5 ? 310 : numberOfCurses >= 6 &&
+                                                                               numberOfCurses <= 8 ? 475 : 680;
+                break;
+        }
+        double totalPrice = cuotaFija + cuota;
+        cout << "El importe a cancelar es de S/." << totalPrice << endl;
     }
 
     void exercise_29() {
-
+        char carModel;
+        cout << "Ingresa el modelo de carro: ";
+        cin >> carModel;
+        carModel = toupper(carModel);
+        if (carModel != 'A' && carModel != 'B') {
+            cout << "Modelo de carro incorrecto" << endl;
+            exercise_29();
+            return;
+        }
+        int lastLicensePlateDigit;
+        cout << "Ingresa el ultimo digito de la placa: ";
+        cin >> lastLicensePlateDigit;
+        if (lastLicensePlateDigit < 0 || lastLicensePlateDigit > 9) {
+            cout << "Ultimo digito de la placa incorrecto" << endl;
+            exercise_29();
+            return;
+        }
+        double costOfMaintenance;
+        cout << "Ingresa el costo de mantenimiento: ";
+        cin >> costOfMaintenance;
+        if (costOfMaintenance < 0) {
+            cout << "Costo de mantenimiento incorrecto" << endl;
+            exercise_29();
+            return;
+        }
+        string monthOfRevision;
+        switch (carModel) {
+            case 'A':
+                if (lastLicensePlateDigit >= 0 && lastLicensePlateDigit <= 5) {
+                    monthOfRevision = costOfMaintenance <= 500 ? "Enero" : "Marzo";
+                } else if(lastLicensePlateDigit >= 6 && lastLicensePlateDigit <= 8) {
+                    monthOfRevision = costOfMaintenance <= 700 ? "Junio" : "Julio";
+                } else {
+                    monthOfRevision = costOfMaintenance <= 1000 ? "Octubre" : "Noviembre";
+                }
+                break;
+            case 'B':
+                if (lastLicensePlateDigit >= 1 && lastLicensePlateDigit <= 3) {
+                    monthOfRevision = costOfMaintenance <= 500 ? "Marzo" : "Abril";
+                } else if(lastLicensePlateDigit >= 4 && lastLicensePlateDigit <= 8) {
+                    monthOfRevision = costOfMaintenance <= 700 ? "Mayo" : "Septiembre";
+                } else {
+                    monthOfRevision = costOfMaintenance <= 1000 ? "Agosto" : "Diciembre";
+                }
+                break;
+        }
+        cout << "El mes de revision técnica es: " << monthOfRevision << endl;
     }
 
     void exercise_30() {
-
+        int birthDay;
+        cout << "Ingresa el dia de nacimiento: ";
+        cin >> birthDay;
+        if (birthDay < 1 || birthDay > 31) {
+            cout << "Dia de nacimiento incorrecto" << endl;
+            exercise_30();
+            return;
+        }
+        int birthMonth;
+        cout << "Ingresa el mes de nacimiento: ";
+        cin >> birthMonth;
+        if (birthMonth < 1 || birthMonth > 12) {
+            cout << "Mes de nacimiento incorrecto" << endl;
+            exercise_30();
+            return;
+        }
+        int birthYear;
+        cout << "Ingresa el año de nacimiento: ";
+        cin >> birthYear;
+        if (birthYear < 0 || birthYear > 2022) {
+            cout << "Año de nacimiento incorrecto" << endl;
+            exercise_30();
+            return;
+        }
+        bool yearIsPair = birthYear % 2 == 0;
+        bool dayIsPair = dayIsPair % 2 == 0;
+        string color;
+        switch (birthMonth) {
+            case 1:
+            case 2:
+            case 3:
+                if (yearIsPair) {
+                    color = dayIsPair ? "Rojo" : "Celeste";
+                } else {
+                    color = dayIsPair ? "Morado" : "Negro";
+                }
+                break;
+            case 4:
+            case 5:
+            case 6:
+                if (yearIsPair) {
+                    color = dayIsPair ? "Naranja" : "Verde";
+                } else {
+                    color = dayIsPair ? "Turquesa" : "Gris";
+                }
+                break;
+            case 7:
+            case 8:
+            case 9:
+                if (yearIsPair) {
+                    color = dayIsPair ? "Marrón" : "Fucsia";
+                } else {
+                    color = dayIsPair ? "Azul" : "Amarillo";
+                }
+                break;
+            default:
+                if (yearIsPair) {
+                    color = dayIsPair ? "Violeta" : "Rosado";
+                } else {
+                    color = dayIsPair ? "Olivo" : "Blanco";
+                }
+                break;
+        }
+        cout << "Tu color es: " << color << endl;
     }
 };
 
