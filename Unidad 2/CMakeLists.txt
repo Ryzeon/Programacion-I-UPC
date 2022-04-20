@@ -3,4 +3,4 @@ project(Ejercicios)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Ejercicios main.cpp Sheet_1.h)
+add_executable(Ejercicios main.cpp Sheet_1.h Sheet_2.h)
