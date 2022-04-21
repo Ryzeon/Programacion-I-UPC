@@ -2,7 +2,7 @@
 ### Lenguaje de Programación: C++
 
 ### [**Hoja 1**](Sheet_1.h)
-
+### [**Hoja 2**](Sheet_2.h)
 
 ### Instrucciones
 * #### Ejecutar el programa
