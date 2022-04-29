@@ -226,6 +226,7 @@ private:
         cout << "Ingrese el mes >> ";
         cin >> month;
         cout << "Ingrese el año >> ";
+
         cin >> year;
         if (month < 1 || month > 12) {
             cout << "Mes inválido" << endl;
