@@ -310,31 +310,151 @@ private:
     }
 
     void exercise_11() {
-
+        int n;
+        cout << "Ingrese un numero: ";
+        cin >> n;
+        if (n < 0) {
+            cout << "Numero invalido" << endl;
+            exercise_11();
+            return;
+        }
+        double sum = 1;
+        double nextToSum = 2;
+        // I make a for to sum the sequence but reduce 1 loop  because first loop its 1
+        for (int i = 0; i < (n - 1); ++i) {
+            sum += 1.0 / nextToSum;
+            nextToSum = nextToSum * 2;
+        }
+        cout << "La suma es: " << sum << endl;
     }
 
     void exercise_12() {
-
+        int n;
+        cout << "Ingrese un numero: ";
+        cin >> n;
+        if (n < 0) {
+            cout << "Numero invalido" << endl;
+            exercise_12();
+            return;
+        }
+        double sum = 1;
+        double nextToSum = 2;
+        // I make a for to sum the sequence but reduce 1 loop  because first loop its 1
+        for (int i = 0; i < (n - 1); ++i) {
+            if (i % 2 == 0) {
+                sum -= 1.0 / nextToSum;
+            } else {
+                sum += 1.0 / nextToSum;
+            }
+            nextToSum = nextToSum * 2;
+        }
+        cout << "La suma es: " << sum << endl;
     }
 
     void exercise_13() {
+        int n;
+        cout << "Ingrese un numero: ";
+        cin >> n;
+        if (n < 0) {
+            cout << "Numero invalido" << endl;
+            exercise_13();
+            return;
+        }
 
+        // para poder imprimir y reformatear decimales
+        cout.setf(ios::fixed);
+        cout.setf(ios::showpoint);
+        cout.precision(3);
+
+        double sum = 1;
+        double dividend = 2, divider = 1;
+        // I make a for to sum the sequence but reduce 1 loop  because first loop its 1
+        for (int i = 0; i < (n - 1); ++i) {
+            sum += dividend / divider;
+            dividend += 2;
+            divider += 2;
+        }
+        cout << "La suma es: " << sum << endl;
     }
 
     void exercise_14() {
-
+        int n;
+        cout << "Ingrese un numero: ";
+        cin >> n;
+        if (n < 0) {
+            cout << "Numero invalido" << endl;
+            exercise_14();
+            return;
+        }
+        int reversed = 0;
+        while (n > 0) {
+            reversed = reversed * 10 + n % 10;
+            n = n / 10;
+        }
+        cout << "El numero al reves es: " << reversed << endl;
     }
 
     void exercise_15() {
-
+        int n;
+        cout << "Ingrese un numero: ";
+        cin >> n;
+        if (n < 0) {
+            cout << "Numero invalido" << endl;
+            exercise_15();
+            return;
+        }
+        int sum = 0;
+        for (int i = 1; i < n; ++i) {
+            if (n % i == 0) {
+                sum += i;
+            }
+        }
+        if (sum == n) {
+            cout << "El numero es perfecto" << endl;
+        } else {
+            cout << "El numero no es perfecto" << endl;
+        }
     }
 
     void exercise_16() {
-
+        int n;
+        cout << "Ingrese N: ";
+        cin >> n;
+        if (n < 0) {
+            cout << "Numero invalido" << endl;
+            exercise_16();
+            return;
+        }
+        // a = seria el primer numero y b el siguiente para sumar
+        int a = 1, b = 0;
+        for (int i = 0; i < n; ++i) {
+            cout << a << (i + 1 == n ? "" : ",") << " ";
+            // a = la suma de a y b // ejemplo a = 1 + 0 = 1
+            // siguiente a = 1 + 1 = 2
+            a = a + b;
+            // b = la resta de a y b // ejemplo b = 1 - 0 = 1
+            // siguiente b = 2 - 1 = 1
+            b = a - b;
+        }
     }
 
     void exercise_17() {
-
+        int n;
+        cout << "Ingrese N: ";
+        cin >> n;
+        if (n < 0) {
+            cout << "Numero invalido" << endl;
+            exercise_16();
+            return;
+        }
+        int sum = 0;
+        int a = 1, b = 0;
+        for (int i = 0; i < n; ++i) {
+            sum += a;
+            a = a + b;
+            b = a - b;
+        }
+        cout << "La suma es: " << sum << endl;
     }
 };
 
