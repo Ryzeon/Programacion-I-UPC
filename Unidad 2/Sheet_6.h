@@ -284,6 +284,11 @@ private:
         int randomNumber = rand() % 100 + 1;
         int tries = 0;
         while (!done) {
+            if (tries > 12) {
+                cout << "Intento maximo execidos" << endl;
+                done = true;
+                return;
+            }
             int number;
             cout << "Ingrese un numero: ";
             cin >> number;

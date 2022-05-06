@@ -7,12 +7,15 @@
 #include "Sheet_5.h"
 #include "Sheet_6.h"
 #include "Sheet_7.h"
+#include "Sheet_8.h"
+#include "Sheet_9.h"
+#include "Sheet_10.h"
 
 using namespace std;
 
 int main() {
     cout << "---------------------" << endl;
-    int amountOfSheets = 7;
+    int amountOfSheets = 10;
     for (int i = 0; i < amountOfSheets; i++) {
         cout << (i + 1) << ".- Hoja " << (i + 1) << endl;
     }
@@ -27,7 +30,10 @@ int main() {
                 {4, 3},
                 {5, 3},
                 {6, 17},
-                {7, 9}
+                {7, 9},
+                {8, 7},
+                {9, 1},
+                {10, 12}
         };
         int numberOfExercises = exercises[choise];
         int exerciseChoise;
@@ -54,6 +60,15 @@ int main() {
                 break;
             case 7:
                 new Sheet_7(exerciseChoise);
+                break;
+            case 8:
+                new Sheet_8(exerciseChoise);
+                break;
+            case 9:
+                new Sheet_9(exerciseChoise);
+                break;
+            case 10:
+                new Sheet_10(exerciseChoise);
                 break;
         }
     } else {
