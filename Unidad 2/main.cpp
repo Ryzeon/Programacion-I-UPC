@@ -32,7 +32,7 @@ int main() {
                 {6, 17},
                 {7, 9},
                 {8, 7},
-                {9, 1},
+                {9, 4},
                 {10, 12}
         };
         int numberOfExercises = exercises[choise];
