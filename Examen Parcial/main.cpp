@@ -22,25 +22,10 @@ double calcularFactorial(double number) {
 using namespace std;
 
 int main() {
-    int n = 5;
-    double total = 0;
-    int sum = 0;
-    cout << "los temrnosi " << endl;
-    for (int i = 1; i <= n; i++) {
-        double arriba = pow(i, i) + i;
-        double abajo = sum + calcularFactorial(i);
-        double a = arriba / abajo;
-        if (i % 2 != 0) {
-            a *= -1;
-        }
-        total += a;
-        cout << a << " ";
-        sum += 3;
-    }
-    cout << endl;
-    cout << "total es" << total;
+    ejercicio_1();
+    ejercicio_2();
+    ejercicio_3();
     return 0;
-
 }
 
 void ejercicio_1() {
