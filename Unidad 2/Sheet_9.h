@@ -67,9 +67,9 @@ private:
                     "La codigo de pizza tener 4 digitos"
             );
             lastPizzaCode = pizzaCode;
-            if (pizzaCode == 0) {
+            if (lastPizzaCode == 0) {
                 cout << "El codigo de pizza es 0, a continuacion se imprimira los resultados";
-                return;
+                break;
             }
             int kindOfPizza = utils::ask<int>(
                     "Ingrese el tipo de pizza: ",
@@ -97,7 +97,7 @@ private:
                     "El tiempo de entrega debe ser mayor de 0"
             );
             int pizzaPrice = kindOfPizza == 1 ? 50 : (kindOfPizza == 2 ? 60 : 68);
-            bool isFree = kindOfOrder == 'D' ? timeOfDelivery == 30 : timeOfDelivery == 20;
+            bool isFree = kindOfOrder == 'D' ? timeOfDelivery >= 30 : timeOfDelivery >= 20;
             if (isFree) {
                 cout << "La pizza es gratis!" << endl;
                 freeOrders++;
@@ -115,48 +115,35 @@ private:
         }
         cout << "El importe recaudado es " << totalSell << endl;
         cout << "Se entregaron " << freeOrders << " pedidos gratis" << endl;
-        // big = 1
-        // fam = 1
-        // superFam = 1
-        if (big == fam && fam == superFam) {
-            cout << "Las 3 pizza fueron la mas vendidas" << endl;
+        int max = 0, max2 = 0;
+        string maxName, maxName2;
+        if (big > fam && big > superFam) {
+            max = big;
+            maxName = "Grande";
+        } else if (fam > big && fam > superFam) {
+            max = fam;
+            maxName = "Familiar";
+        } else {
+            max = superFam;
+            maxName = "Super Familiar";
         }
-            // big 5
-            // fam 3
-            // superfam 2
-        else if (big > fam && big > superFam) {
-            cout << "La pizza mas vendida fue la grande" << endl;
+        if (big > fam && big > superFam && big != max) {
+            max2 = big;
+            maxName2 = "Grande";
+        } else if (fam > big && fam > superFam && fam != max) {
+            max2 = fam;
+            maxName2 = "Familiar";
+        } else if (superFam > big && superFam > fam && superFam != max) {
+            max2 = superFam;
+            maxName2 = "Super Familiar";
+        } else {
+            max2 = max;
+            maxName2 = maxName;
         }
-            // big 3
-            // fam 5
-            // superfam 2
-        else if (fam > big && fam > superFam) {
-            cout << "La pizza mas vendida fue la familiar" << endl;
-        }
-            // big 3
-            // fam 2
-            // superfam 5
-        else if (superFam > big && superFam > fam) {
-            cout << "La pizza mas vendida fue la super familiar" << endl;
-        }
-            // big 2
-            // fam 2
-            // super fam 1
-        else if (big == fam && fam > superFam) {
-            cout << "Las pizza mas vendidas fueron la grande y familiar" << endl;
-        }
-            // big 2
-            // fam 1
-            // superFam 2
-        else if (big == superFam && big > fam) {
-            cout << "Las pizza mas vendidas fueron la grande y super familiar" << endl;
-        }
-            // big 1
-            // fam 2
-            // super Fam 2
-        else if (fam == superFam && fam > big) {
-            cout << "Las pizza mas vendidas fueron la familiar y super familiar" << endl;
-
+        if (maxName == maxName2) {
+            cout << "El mayor tipo de pizza es " << maxName << " con " << max << " pedidos" << endl;
+        } else {
+            cout << "Las 2 mas vendidas son " << maxName << " y " << maxName2 << endl;
         }
         cout << "El tiempo de entrega es: " << endl;
         cout << "  Delivery: " << (timeToDispatchDelivery / completeOrdersDelivery) << endl;
@@ -169,35 +156,37 @@ private:
                 ([](int v) { return v > 0 && v < 21; }),
                 "El valor de n debe ser mayor que 0 y menor de 22"
         );
-        double a = utils::ask<double>(
+        float a = utils::ask<float>(
                 "Ingrese A: ",
-                ([](double v) { return v >= 0.5 && v <= 2.0; }),
+                ([](float v) { return v >= 0.5 && v <= 2.0; }),
                 "El valor de a debe estar entre 0.5 y 2"
         );
         float result = 0.0;
-        int divisor = 2, exponential = 1, multi = 1;
         for (int i = 1; i <= n; i++) {
-            if (i % 2 != 0) {
-                result += ((float) multi * (float) utils::calculateExponential(a, exponential)) / (float) divisor;
-            } else {
-                result -= ((float) multi * (float) utils::calculateExponential(a, exponential)) / (float) divisor;
-            }
-            divisor += 2;
-            multi += 2;
-            exponential *= 2;
+            float doubleN = i * 2;
+            float denominator = doubleN * doubleN;
+            result += pow(-1, i + 1) *
+                      ((doubleN - 1) * pow(a, pow(2, i - 1)) / doubleN);
         }
-        cout << "La seria mare es " << result << endl;
-        float toMultiply = ((float) utils::calculateExponential(-1, n + 1) /
-                            ((float) ((2 * n) -
-                                      1 * (utils::calculateExponential(a, utils::calculateExponential(2, n - 1)))) /
-                             (float) 2 * (float) n));
-        cout << "los ultmo es " << toMultiply << endl;
-        result *= toMultiply;
         cout << "El resultado de la serie será: " << result << endl;
     }
 
     void exercise_4() {
+        int n;
+        do {
+            cout << "Ingrese N: ";
+            cin >> n;
+        } while (!(n >= 2 && n <= 10));
+        for (int i = 0; i < n; i++) {
 
+            // i = 0;
+            // n = 5
+            int numberToLoop = (n - 1);
+            for (int j = n; )
+            for (int j = 0; j < n; j++) {
+//                0 +++
+            }
+        }
     }
 
 };
