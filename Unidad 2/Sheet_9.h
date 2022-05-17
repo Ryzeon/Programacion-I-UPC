@@ -172,21 +172,7 @@ private:
     }
 
     void exercise_4() {
-        int n;
-        do {
-            cout << "Ingrese N: ";
-            cin >> n;
-        } while (!(n >= 2 && n <= 10));
-        for (int i = 0; i < n; i++) {
 
-            // i = 0;
-            // n = 5
-            int numberToLoop = (n - 1);
-            for (int j = n; )
-            for (int j = 0; j < n; j++) {
-//                0 +++
-            }
-        }
     }
 
 };
