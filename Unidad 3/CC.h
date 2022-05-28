@@ -26,14 +26,7 @@ public:
     }
 
     static string findConsoleColorRegex(const string &input) {
-        // Regex for console colors is som lioke this example:
-        // &1Hi&2xd // input
-        // CONSOLE_COLOR_MAPS["1"}HiCONSOLE_COLOR_MAPS["2"]xd // output
-        // Remember in an input can be found more than one console color
-        // so we need to find all of them and replace them with the correct
         string output = input;
-        // Example text is &1Hello &2World&3!&4 // So the rebex only detect the first one and replace it with the correct one beacuse the second one is anothe color or background color or nothing
-        // Match the first console color
         regex colorRegex("&([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])");
         smatch match;
         while (regex_search(output, match, colorRegex)) {
@@ -49,7 +42,6 @@ public:
     }
 
     static string findConsoleBackgroundRegex(const string &input) {
-        // Regex for console colors is ^[number]
         string output = input;
         regex colorRegex("%([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])");
         smatch match;
